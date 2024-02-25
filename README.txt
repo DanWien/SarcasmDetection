@@ -1,4 +1,15 @@
 Instructions on how to run the project:
+Extract the files required to run the system
+Open the AWS folder in your desired IDE
+Open the App class ---> Edit Run Configurations ---> Add new Run Configuration "App"
+In program arguments provide the following:
+	a.inputFile names and corresponding outputFile names(Note that the input files must reside in the AWS folder)
+	b.The "n" variable indicating how many reviews a worker can process at a time.
+	c.Termination flag for the Manager - "y" to terminate , any other character to remain in a running state(must provide some character).
+Set the main class to "com.myproject.App"
+Inside environment variables provide the AWS credentials to be able to access AWS services.
+Once all of the above is completed, the system is ready to be run.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 On a local application, hit run (with the desired input arguments) in the IDE you are using 
 and the rest will be done by the AWS platform.
 After the system finishes running , the application closes, and the manager is turned off according to the terminate
@@ -40,10 +51,15 @@ if the work is done: do nothing. else: make sure the message remains hidden unti
 The worker remains existant for 90 seconds within finishing a job incase there are more incoming jobs, we don't want the workers to terminate immediately 
 to avoid rebooting ec2 nodes a lot of times.
 9.Once a local application receives all of the input files back after processing them, the local app creates an appropriate HTML file as specified and exits.
+Note: 
+	a.Every file that was locally created is deleted once it is not needed anymore by the workers.
+	b.The Manager delets all Queues upon finishing. 
+	c.The local app deletes the bucket that was created.
+The cleanup process is complete - no resource is left unattended.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 The ami we used was "ami-00e95a9222311e8ed" as provided.
 The type we used was M4.large
-The time it takes to process all 5 of the input files at once was around 10-15 minutes.
+The time it takes to process all 5 of the input files at once was around 10-20 minutes.
 The n we used was 200 throughout all of our testing.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Mandatory Requirements:
@@ -56,5 +72,5 @@ Termination process was handled.
 Our manager is not doing more work than he needs to, by tracking and monitoring his actions using printing, we ensured each thing the manager handles is either easy
 to handle (i.e takes no time and isn't heavy) or assigned to a designated thread by the executor service.
 
-Dan Wiener
-Noa Youlzarie
+Dan Wiener,    209413640
+Noa Youlzarie, 209320605
