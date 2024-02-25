@@ -56,5 +56,5 @@ Termination process was handled.
 Our manager is not doing more work than he needs to, by tracking and monitoring his actions using printing, we ensured each thing the manager handles is either easy
 to handle (i.e takes no time and isn't heavy) or assigned to a designated thread by the executor service.
 
-Dan Wiener,    209413640
-Noa Youlzarie, 209320605
+Dan Wiener
+Noa Youlzarie
